@@ -19,6 +19,7 @@
   "author": "Rolando Galindo",
   "license": "MIT",
   "dependencies": {
+    "canonical-url": "github:video-me-tv/canonical-url",
     "normalize-url": "^4.4.0",
     "sha1": "^1.1.1"
   },
