@@ -1,0 +1,28 @@
+{
+  "name": "canonical-url",
+  "version": "1.0.4",
+  "description": "Normalize URL",
+  "main": "canonical-url.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/canonical-url"
+  },
+  "keywords": [
+    "canonical",
+    "url",
+    "normalize",
+    "powr"
+  ],
+  "author": "Rolando Galindo",
+  "license": "MIT",
+  "dependencies": {
+    "normalize-url": "^4.4.0",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
