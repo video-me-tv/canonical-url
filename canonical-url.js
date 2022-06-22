@@ -1,5 +1,5 @@
 'use strict';
-const normalizeUrl = require('normalize-url');
+import normalizeUrl from 'normalize-url';
 const sha1 = require('sha1');
 
 const canonicalUrl = (urlString, options) => {
