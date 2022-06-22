@@ -23,10 +23,8 @@ Wrapper class over [Normalize URL](https://github.com/powr/normalize-url#readme)
 ## Install
 
 ```
-$ npm install https://git-codecommit.us-east-1.amazonaws.com/v1/repos/canonical-url
+$ npm install [https://git-codecommit.us-east-1.amazonaws.com/v1/repos/canonical-url](https://github.com/video-me-tv/canonical-url/)
 ```
-
-If you have authentication problems, [this Article on AWS npm install private codeCommit module](https://medium.com/@ngchiwang/aws-npm-install-private-codecommit-module-8512c3203c37) helped me.
 
 ## Usage
 
