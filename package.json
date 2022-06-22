@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "Normalize URL",
   "main": "canonical-url.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
