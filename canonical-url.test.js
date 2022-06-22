@@ -17,33 +17,33 @@ test ('missing protocol and www', () => {
 });
 
 test('remove port', () => {
-  expect(canonicalUrl('https://powr.com:80')).toEqual({
-    canonical: 'powr.com',
-    domain: 'powr.com',
+  expect(canonicalUrl('https://me.tv:80')).toEqual({
+    canonical: 'me.tv',
+    domain: 'me.tv',
     slug: '42e81bef20384a1be20fe652e795a6b5e48c03b5',
   });
 });
 
 test('remove hash', () => {
-  expect(canonicalUrl('http://powr.com/about.html#contact')).toEqual({
-    canonical: 'powr.com/about.html',
-    domain: 'powr.com',
+  expect(canonicalUrl('http://me.tv/about.html#contact')).toEqual({
+    canonical: 'me.tv/about.html',
+    domain: 'me.tv',
     slug: '9261086205888c9c5a7bd4370610c2246a00473a',
   });
 });
 
 test('remove www', () => {
-  expect(canonicalUrl('http://www.powr.com')).toEqual({
-    canonical: 'powr.com',
-    domain: 'powr.com',
+  expect(canonicalUrl('http://www.me.tv')).toEqual({
+    canonical: 'me.tv',
+    domain: 'me.tv',
     slug: '42e81bef20384a1be20fe652e795a6b5e48c03b5',
   });
 });
 
 test('remove www hash port', () => {
-  expect(canonicalUrl('https://powr.com:80/about.html#contact')).toEqual({
-    canonical: 'powr.com/about.html',
-    domain: 'powr.com',
+  expect(canonicalUrl('https://me.tv:80/about.html#contact')).toEqual({
+    canonical: 'me.tv/about.html',
+    domain: 'me.tv',
     slug: '9261086205888c9c5a7bd4370610c2246a00473a',
   });
 });

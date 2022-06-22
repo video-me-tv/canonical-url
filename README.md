@@ -31,13 +31,13 @@ $ npm install [https://git-codecommit.us-east-1.amazonaws.com/v1/repos/canonical
 ```js
 const canonicalUrl = require('canonical-url');
 
-const {canonical, domain, slug} = canonicalUrl('https://powr.com:80/about.html#contact');
-// canonical => 'powr.com/about.html'
-// domain => 'powr.com'
+const {canonical, domain, slug} = canonicalUrl('https://me.tv:80/about.html#contact');
+// canonical => 'me.tv/about.html'
+// domain => 'me.tv'
 // slug => '9261086205888c9c5a7bd4370610c2246a00473a'
 
-const {canonical} = canonicalUrl('https://powr.com:80/about.html#contact');
-// canonical => 'powr.com/about.html'
+const {canonical} = canonicalUrl('https://me.tv:80/about.html#contact');
+// canonical => 'me.tv/about.html'
 
 ```
 
@@ -81,11 +81,11 @@ Default: `true`
 Prepend `defaultProtocol` to the URL if it's protocol-relative.
 
 ```js
-canonicalUrl('//powr.com:80/');
-//=> 'http://powr.com'
+canonicalUrl('//me.tv:80/');
+//=> 'http://me.tv'
 
-canonicalUrl('//powr.com:80/', {normalizeProtocol: false});
-//=> '//powr.com'
+canonicalUrl('//me.tv:80/', {normalizeProtocol: false});
+//=> '//me.tv'
 ```
 
 ##### forceHttp
@@ -96,11 +96,11 @@ Default: `false`
 Normalize `https:` to `http:`.
 
 ```js
-canonicalUrl('https://powr.com:80/');
-//=> 'https://powr.com'
+canonicalUrl('https://me.tv:80/');
+//=> 'https://me.tv'
 
-canonicalUrl('https://powr.com:80/', {forceHttp: true});
-//=> 'http://powr.com'
+canonicalUrl('https://me.tv:80/', {forceHttp: true});
+//=> 'http://me.tv'
 ```
 
 ##### forceHttps
@@ -111,11 +111,11 @@ Default: `false`
 Normalize `http:` to `https:`.
 
 ```js
-canonicalUrl('https://powr.com:80/');
-//=> 'https://powr.com'
+canonicalUrl('https://me.tv:80/');
+//=> 'https://me.tv'
 
-canonicalUrl('http://powr.com:80/', {forceHttps: true});
-//=> 'https://powr.com'
+canonicalUrl('http://me.tv:80/', {forceHttps: true});
+//=> 'https://me.tv'
 ```
 
 This option can't be used with the `forceHttp` option at the same time.
@@ -128,11 +128,11 @@ Default: `true`
 Strip the [authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) part of the URL.
 
 ```js
-canonicalUrl('user:password@powr.com');
-//=> 'https://powr.com'
+canonicalUrl('user:password@me.tv');
+//=> 'https://me.tv'
 
-canonicalUrl('user:password@powr.com', {stripAuthentication: false});
-//=> 'https://user:password@powr.com'
+canonicalUrl('user:password@me.tv', {stripAuthentication: false});
+//=> 'https://user:password@me.tv'
 ```
 
 ##### stripHash
@@ -143,11 +143,11 @@ Default: `false`
 Strip the hash part of the URL.
 
 ```js
-canonicalUrl('powr.com/about.html#contact');
-//=> 'http://powr.com/about.html#contact'
+canonicalUrl('me.tv/about.html#contact');
+//=> 'http://me.tv/about.html#contact'
 
-canonicalUrl('powr.com/about.html#contact', {stripHash: true});
-//=> 'http://powr.com/about.html'
+canonicalUrl('me.tv/about.html#contact', {stripHash: true});
+//=> 'http://me.tv/about.html'
 ```
 
 ##### stripProtocol
@@ -155,14 +155,14 @@ canonicalUrl('powr.com/about.html#contact', {stripHash: true});
 Type: `boolean`<br>
 Default: `false`
 
-Remove HTTP(S) protocol from the URL: `http://powr.com` → `powr.com`.
+Remove HTTP(S) protocol from the URL: `http://me.tv` → `me.tv`.
 
 ```js
-canonicalUrl('https://powr.com');
-//=> 'https://powr.com'
+canonicalUrl('https://me.tv');
+//=> 'https://me.tv'
 
-canonicalUrl('powr.com', {stripProtocol: true});
-//=> 'powr.com'
+canonicalUrl('me.tv', {stripProtocol: true});
+//=> 'me.tv'
 ```
 
 ##### stripWWW
@@ -173,11 +173,11 @@ Default: `true`
 Remove `www.` from the URL.
 
 ```js
-canonicalUrl('http://www.powr.com');
-//=> 'http://powr.com'
+canonicalUrl('http://www.me.tv');
+//=> 'http://me.tv'
 
-canonicalUrl('http://www.powr.com', {stripWWW: false});
-//=> 'http://www.powr.com'
+canonicalUrl('http://www.me.tv', {stripWWW: false});
+//=> 'http://www.me.tv'
 ```
 
 ##### removeQueryParameters
@@ -188,10 +188,10 @@ Default: `[/^utm_\w+/i]`
 Remove query parameters that matches any of the provided strings or regexes.
 
 ```js
-canonicalUrl('www.powr.com?foo=bar&ref=test_ref', {
+canonicalUrl('www.me.tv?foo=bar&ref=test_ref', {
 	removeQueryParameters: ['ref']
 });
-//=> 'http://powr.com/?foo=bar'
+//=> 'http://me.tv/?foo=bar'
 ```
 
 ##### removeTrailingSlash
@@ -204,14 +204,14 @@ Remove trailing slash.
 **Note:** Trailing slash is always removed if the URL doesn't have a pathname.
 
 ```js
-canonicalUrl('http://powr.com/redirect/');
-//=> 'http://powr.com/redirect'
+canonicalUrl('http://me.tv/redirect/');
+//=> 'http://me.tv/redirect'
 
-canonicalUrl('http://powr.com/redirect/', {removeTrailingSlash: false});
-//=> 'http://powr.com/redirect/'
+canonicalUrl('http://me.tv/redirect/', {removeTrailingSlash: false});
+//=> 'http://me.tv/redirect/'
 
-canonicalUrl('http://powr.com/', {removeTrailingSlash: false});
-//=> 'http://powr.com'
+canonicalUrl('http://me.tv/', {removeTrailingSlash: false});
+//=> 'http://me.tv'
 ```
 
 ##### removeDirectoryIndex
@@ -222,10 +222,10 @@ Default: `false`
 Removes the default directory index file from path that matches any of the provided strings or regexes. When `true`, the regex `/^index\.[a-z]+$/` is used.
 
 ```js
-canonicalUrl('www.powr.com/foo/default.php', {
+canonicalUrl('www.me.tv/foo/default.php', {
 	removeDirectoryIndex: [/^default\.[a-z]+$/]
 });
-//=> 'http://powr.com/foo'
+//=> 'http://me.tv/foo'
 ```
 
 ##### sortQueryParameters
@@ -236,10 +236,10 @@ Default: `true`
 Sorts the query parameters alphabetically by key.
 
 ```js
-canonicalUrl('www.powr.com?b=two&a=one&c=three', {
+canonicalUrl('www.me.tv?b=two&a=one&c=three', {
 	sortQueryParameters: false
 });
-//=> 'http://powr.com/?b=two&a=one&c=three'
+//=> 'http://me.tv/?b=two&a=one&c=three'
 ```
 
 
